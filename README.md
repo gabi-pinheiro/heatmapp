@@ -15,6 +15,6 @@ Tais informações serão processadas para gerar um mapa de calor que pode ser c
 | A definir                            |            |
 
 ## Badges
-![Dev Branch](https://github.com/gabi-pinheiro/heatmapp/actions/workflows/rails.yml/badge.svg?branch=dev)
-![Master Branch](https://github.com/gabi-pinheiro/heatmapp/actions/workflows/rails.yml/badge.svg?branch=master)
+![Dev Branch](https://github.com/gabi-pinheiro/heatmapp/actions/workflows/blank.yml/badge.svg?branch=dev)
+![Master Branch](https://github.com/gabi-pinheiro/heatmapp/actions/workflows/blank.yml/badge.svg?branch=master)
 
