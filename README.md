@@ -21,3 +21,5 @@ Tais informações serão processadas para gerar um mapa de calor que pode ser c
 #### Branch Master 
 ![Master Branch](https://github.com/gabi-pinheiro/heatmapp/actions/workflows/blank.yml/badge.svg?branch=master)
 
+#### CodeClimate
+[![Maintainability](https://qlty.sh/gh/gabi-pinheiro/projects/heatmapp/maintainability.svg)](https://qlty.sh/gh/gabi-pinheiro/projects/heatmapp)
