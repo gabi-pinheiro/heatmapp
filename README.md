@@ -13,3 +13,8 @@ Tais informações serão processadas para gerar um mapa de calor que pode ser c
 | Gabriela Pinheiro Almeida Dantas     | 14573249   |
 | Ricardo Miranda Cordovil Filho       | 14658257   |
 | A definir                            |            |
+
+## Badges
+![Dev Branch](https://github.com/gabi-pinheiro/heatmapp/actions/workflows/rails.yml/badge.svg?branch=dev)
+![Master Branch](https://github.com/gabi-pinheiro/heatmapp/actions/workflows/rails.yml/badge.svg?branch=master)
+
