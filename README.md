@@ -23,3 +23,4 @@ Tais informações serão processadas para gerar um mapa de calor que pode ser c
 
 #### CodeClimate
 [![Maintainability](https://qlty.sh/gh/gabi-pinheiro/projects/heatmapp/maintainability.svg)](https://qlty.sh/gh/gabi-pinheiro/projects/heatmapp)
+[![Code Coverage](https://qlty.sh/gh/gabi-pinheiro/projects/heatmapp/coverage.svg)](https://qlty.sh/gh/gabi-pinheiro/projects/heatmapp)
