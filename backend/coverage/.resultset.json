@@ -1,0 +1,47 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/workspaces/heatmapp/backend/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/workspaces/heatmapp/backend/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/workspaces/heatmapp/backend/app/controllers/application_controller.rb": [
+        0,
+        0
+      ],
+      "/workspaces/heatmapp/backend/app/helpers/application_helper.rb": [
+        0,
+        0
+      ],
+      "/workspaces/heatmapp/backend/app/jobs/application_job.rb": [
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0
+      ],
+      "/workspaces/heatmapp/backend/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/workspaces/heatmapp/backend/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1757273648
+  }
+}
