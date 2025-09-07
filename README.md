@@ -8,11 +8,12 @@ Tais informações serão processadas para gerar um mapa de calor que pode ser c
 
 | Nome                                 | Número USP |
 |--------------------------------------|------------|
+| André Vieira Rocha                   | xxxx       |
 | Gabriel Dimant                       | 14653248   |
 | Gabriel Monteiro de Souza            | xxxx       |
 | Gabriela Pinheiro Almeida Dantas     | 14573249   |
 | Ricardo Miranda Cordovil Filho       | 14658257   |
-| A definir                            |            |
+
 
 ## Badges
 #### Branch Dev 
