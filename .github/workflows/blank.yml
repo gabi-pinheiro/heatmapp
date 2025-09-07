@@ -33,7 +33,7 @@ jobs:
     env:
       RAILS_ENV: test
       COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-      CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
+      QLTY_COVERAGE_TOKEN: ${{ secrets.QLTY_COVERAGE_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -70,11 +70,11 @@ jobs:
       - name: Run Coveralls
         run: bundle exec coveralls
 
-      - name: Run CodeClimate analysis
-        uses: paambaati/codeclimate-action@v3.0.0
+      - name: Upload test coverage to QLTY
+        uses: qltysh/qlty-action/coverage@v2
         with:
-          coverageCommand: "bundle exec rspec"
-          debug: true
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: coverage/.resultset.json
 
   # =========================
   # JOB FRONTEND
