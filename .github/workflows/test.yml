@@ -1,0 +1,99 @@
+name: Rails CI/CD (Test Mode)
+
+on:
+  push:
+    branches: [ teste-workflow ]
+  pull_request:
+    branches: [ teste-workflow ]
+
+defaults:
+  run:
+    working-directory: ./backend
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:15
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: test_db
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      RAILS_ENV: test
+      COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN || '' }}
+      CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_REPO_TOKEN || '' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          bundler-cache: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y libpq-dev
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          yarn install --check-files || true
+
+      - name: Set up database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+
+      - name: Run RSpec tests
+        run: bundle exec rspec
+
+      - name: Run Cucumber tests
+        run: bundle exec cucumber
+
+      - name: Test CODECLIMATE_REPO_TOKEN
+        run: |
+          if [ -z "$CODECLIMATE_REPO_TOKEN" ]; then
+            echo "CODECLIMATE_REPO_TOKEN não encontrado, pulando CodeClimate"
+          else
+            echo "Token CodeClimate encontrado, rodar análise"
+            bundle exec codeclimate-test-reporter
+          fi
+
+      - name: Test COVERALLS_REPO_TOKEN
+        run: |
+          if [ -z "$COVERALLS_REPO_TOKEN" ]; then
+            echo "COVERALLS_REPO_TOKEN não encontrado, pulando Coveralls"
+          else
+            bundle exec coveralls
+          fi
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Placeholder frontend
+        run: echo "Frontend não configurado ainda, apenas placeholder"
