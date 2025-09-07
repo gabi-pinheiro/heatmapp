@@ -75,6 +75,19 @@ jobs:
           coverageCommand: "bundle exec rspec"
           debug: true
 
+  check-branch-name:
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/dev'
+    steps:
+      - name: Check branch name
+        run: |
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          if [[ ! "$BRANCH_NAME" =~ ^(feature|hotfix)\/[a-z0-9._-]+$ ]]; then
+            echo "Nome de branch inválido: $BRANCH_NAME"
+            echo "Use feature/<nome> ou hotfix/<nome>"
+            exit 1
+          fi
+
   deploy:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
